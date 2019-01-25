@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     gettimeofday(&end, NULL);
 
     /* Compute and print to stdout column traversal time */
-    total_time = end.tv_sec - start.tv_sec+ (end.tv_usec - start.tv_usec)*0.000001;;
+    total_time = end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec)*0.000001;
     printf("Column traversal total time was %f seconds.\n", total_time);
 
     return 0;
