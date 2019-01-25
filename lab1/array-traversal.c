@@ -15,20 +15,16 @@ int main(int argc, char* argv[]) {
     char myArray[dimension][dimension];
 
     /* Row major traversal */
-    for (i = 0; i < sizeof(myArray); i++) {
+    for (i = 0; i < dimension; i++) {
         for (j = 0; j < dimension; j++) {
-            for (k = 0; k < dimension; k++) {
-                myArray[j][k] = 'r';
-            }
+                myArray[i][j] = 'r';
         }
     }
 
     /* Column major traversal */
-    for (i = 0; i < sizeof(myArray); i++) {
+    for (i = 0; i < dimension; i++) {
         for (j = 0; j < dimension; j++) {
-            for (k = 0; k < dimension; k++) {
-                myArray[k][j] = 'c';
-            }
+                myArray[j][i] = 'c';
         }
     }
 
