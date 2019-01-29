@@ -6,15 +6,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
-
+#include <unistd.h>
+#include <string.h>
 
 int main(int argc, char* argv[]) {
+
+
 
     int i, j;
     float total_time;
     struct timeval start, end;
     /* Get dimension size of array from argv */
     int dimension = atoi(argv[1]);
+
+    /* Get host name, set max array size*/
+    int gethostname(char *name, size_t len);
+    char host[64];
+    gethostname(host, sizeof host);
+    if (strcmp(host, "tools") == 0 || strcmp(host, "goldwasser") == 0) {
+        if (dimension > 2890) {
+            dimension = 2890;
+        }
+    }
+    else if (strcmp(host, "hopper") == 0) {
+        if (dimension > 3235) {
+            dimension = 3235;
+        }
+    }
+
     /* Define array local to function */
     char myArray[dimension][dimension];
 
