@@ -10,6 +10,26 @@ Quicksort Implimentation */
 
 using namespace std;
 
+
+/* Partition function implimentation */
+int partition(int array[], int low, int high) {
+    return 0 ;
+}
+
+
+/* Quicksort function implimentation */
+void quicksort(int array[], int low, int high) {
+    if (low < high) {
+        /* Partition array */
+        int x = partition(array, low, high) ;
+
+        /* Recursive call on quicksort */
+        quicksort(array, low, x - 1) ;
+        quicksort(array, x + 1, high) ;
+    }
+}
+
+
 int main(int argc, char *argv[]) {
     vector<int> vector_Array ;
     int x, vec_size ;
@@ -32,6 +52,5 @@ int main(int argc, char *argv[]) {
             vec_size = vector_Array.size() ;
             int_File.close() ;
         }
-
     }
 }
