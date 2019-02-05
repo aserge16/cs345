@@ -15,21 +15,23 @@ using namespace std;
 /* Partition function implimentation */
 int partition(vector<int> array, int low, int high) {
     /* Declare Pivot, at ending index of array */
-    int pivot = array[high];
+    int pivot = array.at(high);
     /* Lowest element to begin comparison */
     int i = low;
 
     /* Loop through array and pivot swap */
     for ( int j = low + 1; j < high; j++) {
         // If lowest less than or equal to pivot, swap */
-        if (array[j] <= pivot) {
+        if (array.at(j) <= pivot) {
+            cout << array[i] << "and" << array[j] << "\n";
+            swap(array[i], array[j]) ;
+            cout << array[i] << "and" << array[j] << "\n\n";
             i++ ;
-            iter_swap(array.begin() + i, array.begin() + j) ;
         }
     }
 
     /* Insert pivot into correct position, return index */
-    iter_swap(array.begin() + i + 1, array.begin() + high) ;
+    swap(array[i+1], array[high]) ;
     return (i + 1) ;
 }
 
@@ -44,11 +46,6 @@ void quicksort(vector<int> array, int low, int high) {
         quicksort(array, low, x - 1) ;
         quicksort(array, x + 1, high) ;
     }
-    for (int x = 0; x < array.size(); x++) {
-        cout << array[x] ;
-        cout << "\n" ;
-    }
-    cout << "\n\n" ;
 }
 
 
@@ -76,9 +73,10 @@ int main(int argc, char *argv[]) {
             /* Call quicksort */
             quicksort(vector_Array, 0, vec_size - 1) ;
             for (int x = 0; x < vec_size; x++) {
-                cout << vector_Array[x] ;
+                cout << vector_Array.at(x) ;
                 cout << "\n" ;
             }
+            return 0 ;
         }
     }
 }
