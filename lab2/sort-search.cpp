@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
     /* Check for bash file input */
     if (argc != 2) {
-        cout << "Incorrect bash input.\n" ;
+        cout << "Incorrect bash input. Please run the code followed by the name of file.\n" ;
         exit(1) ;
     }
     else {
