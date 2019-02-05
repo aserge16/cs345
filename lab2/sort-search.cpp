@@ -51,6 +51,8 @@ int main(int argc, char *argv[]) {
             }
             vec_size = vector_Array.size() ;
             int_File.close() ;
+            /* Call quicksort */
+            quicksort(vector_Array, 1, vec_size)
         }
     }
 }
