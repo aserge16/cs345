@@ -61,7 +61,7 @@ def main(file):
     quicksort(myArray, 0, len(myArray) - 1)
     stop = timeit.default_timer()
     time_sec = stop - start
-    print(time_sec)
+    print("File " + file + " completed.")
     return time_sec, myArray
 
 
