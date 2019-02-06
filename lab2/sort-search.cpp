@@ -17,16 +17,16 @@ int partition(vector<int> array, int low, int high) {
     /* Declare Pivot, at ending index of array */
     int pivot = array.at(high);
     /* Lowest element to begin comparison */
-    int i = low;
+    int i = low - 1;
 
     /* Loop through array and pivot swap */
-    for ( int j = low + 1; j < high; j++) {
+    for ( int j = low; j < high; j++) {
         // If lowest less than or equal to pivot, swap */
         if (array.at(j) <= pivot) {
-            cout << array[i] << "and" << array[j] << "\n";
-            swap(array[i], array[j]) ;
-            cout << array[i] << "and" << array[j] << "\n\n";
             i++ ;
+            int temp = array[i] ;
+            array[i] = array[j] ;
+            array[j] = array[i] ;
         }
     }
 
@@ -72,11 +72,10 @@ int main(int argc, char *argv[]) {
             int_File.close() ;
             /* Call quicksort */
             quicksort(vector_Array, 0, vec_size - 1) ;
-            for (int x = 0; x < vec_size; x++) {
+            for (int x = 0; x < 29; x++) {
                 cout << vector_Array.at(x) ;
                 cout << "\n" ;
             }
-            return 0 ;
         }
     }
 }
