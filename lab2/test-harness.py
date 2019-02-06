@@ -1,4 +1,30 @@
 from quicksort import *
+import datetime
+
+def arraySortTest(array):
+    return all(array[i] <= array[i+1] for i in xrange(len(array)-1))
+
+def testHarness(file):
+    #Get result array, time
+    time, array = main(file)
+
+    # Open log file, if not present it will create new one
+    fh = open("log-file.dat","w+")
+
+    # Get results and convert to strings
+    dayTime = str(datetime.datetime.now())
+    outcome = str(arraySortTest(array))
+    time = str(time)
+
+    # Write results to log file
+    fh.write("Test conducted at: " + dayTime + "\n", )
+    fh.write("Array sorted correctly: " + outcome + "\n", )
+    fh.write("Contucted on file " + file + "\n")
+    fh.write("Ran in " + time + " seconds \n")
+
+    # Close log file
+    fh.close()
+
 
 def run():
     # List of all possible file names
@@ -12,15 +38,14 @@ def run():
     if (0 < files_to_run < 10):
         if files_to_run == 8:
             for i in range(0, 6):
-                main(files[i])
+                testHarness(files[i])
         elif files_to_run == 9:
             for i in range(7, 9):
-                main(files[i])
+                testHarness(files[i])
         else:
-            main(files[files_to_run - 1])
+            testHarness(files[files_to_run - 1])
     else:
         print ("You did not enter a valid arguement.")
-
 
 
 if __name__ == "__main__":
