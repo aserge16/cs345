@@ -1,6 +1,8 @@
 from quicksort import *
 import datetime
+import os
 
+# Function running in O(n) checking if array is sorted
 def arraySortTest(array):
     return all(array[i] <= array[i+1] for i in xrange(len(array)-1))
 
@@ -9,9 +11,9 @@ def testHarness(file):
     time, array = main(file)
 
     # Open log file, if not present it will create new one
-    fh = open("log-file.dat","w+")
+    fh = open("log-file.dat","a")
 
-    # Get results and convert to strings
+    # Get results and convert to strings for writing to file
     dayTime = str(datetime.datetime.now())
     outcome = str(arraySortTest(array))
     time = str(time)
@@ -19,8 +21,9 @@ def testHarness(file):
     # Write results to log file
     fh.write("Test conducted at: " + dayTime + "\n", )
     fh.write("Array sorted correctly: " + outcome + "\n", )
-    fh.write("Contucted on file " + file + "\n")
+    fh.write("Conducted on file " + file + "\n")
     fh.write("Ran in " + time + " seconds \n")
+    fh.write("\n\n")
 
     # Close log file
     fh.close()
@@ -37,10 +40,10 @@ def run():
     # Run files based on index
     if (0 < files_to_run < 10):
         if files_to_run == 8:
-            for i in range(0, 6):
+            for i in range(0, 5):
                 testHarness(files[i])
         elif files_to_run == 9:
-            for i in range(7, 9):
+            for i in range(5, 7):
                 testHarness(files[i])
         else:
             testHarness(files[files_to_run - 1])
