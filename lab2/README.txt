@@ -1,4 +1,5 @@
-Commands to use:
-scp aserge16@tools.cs.earlham.edu:/eccs/users/barbeda/cs345-share/ints* .
-scp aserge16@tools.cs.earlham.edu:/eccs/users/barbeda/cs345-share/floats* .
 
+** HOW TO RUN QUICKSORT **
+- from bash call: python test-harness.py
+- displayed will be preferred file/s to operate on, input integer corresponding to preference
+- code should then run, output results to log-file.dat
