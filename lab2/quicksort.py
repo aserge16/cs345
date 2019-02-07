@@ -5,6 +5,9 @@
 import sys
 import timeit
 
+
+# Recursion limit raised for pathological file sorting
+# Can now sort path files up to 10,000
 sys.setrecursionlimit(10100)
 
 def partition(array, low, high):
