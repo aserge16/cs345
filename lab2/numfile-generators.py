@@ -9,8 +9,8 @@ import random
 # Worst case ordered array generation, input size as str
 def pathological(size):
     # Define file name and open
-    file_name = "ints-" + size + ".dat"
-    fh = open(file_name, "w+")
+    fileName = "ints-" + size + ".dat"
+    fh = open(fileName, "w+")
 
     # Generate numbers and write
     for i in range(int(size) - 1, -1, -1):
@@ -19,12 +19,14 @@ def pathological(size):
     # Close file
     fh.close()
 
+    return fileName
+
 
 # Randomized ints written to file
-def random_file(size):
+def randomFile(size):
     # Define file name and open
-    file_name = "ints-" + size + ".dat"
-    fh = open(file_name, "w+")
+    fileName = "ints-" + size + ".dat"
+    fh = open(fileName, "w+")
 
     # Generate numbers and write
     for i in range( int(size) ):
@@ -33,3 +35,5 @@ def random_file(size):
 
     # Close file
     fh.close()
+
+    return fileName
