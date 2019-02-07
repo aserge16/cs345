@@ -18,14 +18,14 @@ def testHarness(file):
     #Get result array, time
     time, array = main(file)
 
-    # Open log file, if not present it will create new one
-    fh = open("log-file.dat","a")
-
     # Get results and convert to strings for writing to file
     dayTime = str(datetime.datetime.now())
     outcome = str(arraySortTest(array))
     time = str(time)
 
+    # Open log file, if not present it will create new one
+    fh = open("log-file.dat","a")
+    
     # Write results to log file
     fh.write("Test conducted at: " + dayTime + "\n", )
     fh.write("Array sorted correctly: " + outcome + "\n", )
