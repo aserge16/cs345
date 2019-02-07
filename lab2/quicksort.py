@@ -44,7 +44,8 @@ def main(file):
         print("Incorrect file path given.")
         sys.exit()
 
-    # Read ints to Array, close file
+    # Read numbers to Array, close file
+    # Check file type being opened to correctly convert string to int or float
     lines = fh.readlines()
     if "int" in file:
         for line in lines:
@@ -56,11 +57,13 @@ def main(file):
             myArray.append(float(line))
     fh.close()
 
-    # Call quicksort on array
+    # Call quicksort on array and time
     start = timeit.default_timer()
     quicksort(myArray, 0, len(myArray) - 1)
     stop = timeit.default_timer()
     time_sec = stop - start
+
+    # Let user know quicksort is complete, return timing & sorted array
     print("File " + file + " completed.")
     return time_sec, myArray
 
