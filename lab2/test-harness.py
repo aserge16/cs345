@@ -4,8 +4,7 @@
 
 
 from quicksort import *
-from numfile-generators import *
-from sys
+from numfile_generators import *
 import datetime
 import os
 
@@ -57,7 +56,7 @@ def run():
         elif (filesToRun == 10 or filesToRun == 11):
             print("Please enter amount of integers to be generated:\n")
             try:
-                amount = int(input())
+                amount = input()
                 if filesToRun == 10:
                     fileName = pathological(amount)
                     testHarness(fileName)
