@@ -5,6 +5,8 @@
 import sys
 import timeit
 
+sys.setrecursionlimit(10100)
+
 def partition(array, low, high):
     # Declare pivot, ending index of array
     pivot = array[high]
