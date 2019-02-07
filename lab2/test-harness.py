@@ -36,6 +36,8 @@ def testHarness(file):
     # Close log file
     fh.close()
 
+    print("Results sent to log-file.dat")
+
 
 def run():
     # List of all possible file names
