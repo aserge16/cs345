@@ -80,7 +80,6 @@ int main(int argc, char *argv[]) {
             int_File.close() ;
             /* Call quicksort */
             quicksort(array, 0, size - 1) ;
-            }
         }
     }
 }
