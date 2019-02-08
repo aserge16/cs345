@@ -8,6 +8,8 @@ Quicksort Implimentation */
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <sys/time.h>
+
 
 using namespace std;
 
@@ -72,6 +74,8 @@ int main(int argc, char *argv[]) {
             int size = atoi(argv[2]) ;
             int x, y = 0 ;
             int array[size] ;
+            struct timeval start, end ;
+            float total_time;
 
             while (int_File >> x) {
                 array[y] = x ;
@@ -79,7 +83,16 @@ int main(int argc, char *argv[]) {
             }
             int_File.close() ;
             /* Call quicksort */
+            gettimeofday(&start, NULL) ;
             quicksort(array, 0, size - 1) ;
+            gettimeofday(&end, NULL);
+
+            /* Output to bash timing of sort and success */
+            if ( is_sorted(array, array + size) ) {
+                printf("Array was correctly sorted") ;
+            }
+            total_time = end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec)*0.000001;
+            printf("Sorted in %f seconds.\n", total_time);
         }
     }
 }
