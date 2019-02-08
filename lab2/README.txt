@@ -10,6 +10,7 @@ C++ Stretch Goal:
 - then call: ./name_for_out file_path size
 	- file_path = path of file to sort
 	- size = size of static array, eg. For ints-100k.dat size = 100000
+- Segmentation fault will occur with ints-10m.dat
 
 
 Tests longer than 15s:
