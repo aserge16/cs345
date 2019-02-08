@@ -31,9 +31,6 @@ int partition(int array[], int low, int high) {
         // If lowest less than or equal to pivot, swap */
         if (array[j] <= pivot) {
             i++ ;
-            int temp = array[i] ;
-            array[i] = array[j] ;
-            array[j] = temp ;
             swap(&array[i], &array[j]) ;
         }
     }
@@ -59,7 +56,7 @@ void quicksort(int array[], int low, int high) {
 
 int main(int argc, char *argv[]) {
     /* Check for bash file input */
-    if (argc != 2) {
+    if (argc != 3) {
         cout << "Incorrect bash input. Please run the code followed by the name of file.\n" ;
         exit(1) ;
     }
@@ -71,21 +68,19 @@ int main(int argc, char *argv[]) {
         }
         else {
             /* Count number of lines in file for static array decleration */
-            int size = count(istreambuf_iterator<char>(int_File), istreambuf_iterator<char>(), '\n');
-            int x, y = 0;
-            string line ;
+            /* Size is taken from user input in bash */
+            int size = atoi(argv[2]) ;
+            int x, y = 0 ;
             int array[size] ;
 
-            while (! int_File.eof()) {
+            while (int_File >> x) {
+                array[y] = x ;
                 y++ ;
-            }
-            for (x = 0; x < 29; x++) {
-                cout << array[x] ;
-                cout << "\n" ;
             }
             int_File.close() ;
             /* Call quicksort */
             quicksort(array, 0, size - 1) ;
+            }
         }
     }
 }
