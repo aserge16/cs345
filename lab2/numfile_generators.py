@@ -6,7 +6,7 @@
 import random
 
 
-# Worst case ordered array generation, input size as str
+# Worst case ordered array generation, input size as int
 # Reverse order, ie. array initialized from 999 to 0.
 def pathological(size):
     # Define file name and open
@@ -23,7 +23,7 @@ def pathological(size):
     return file_name
 
 
-# Randomized ints written to file
+# Randomized ints written to file, input size as int
 def random_file(size):
     # Define file name and open
     file_name = "ints-" + str(size) + "-random.dat"
@@ -31,7 +31,7 @@ def random_file(size):
 
     # Generate numbers and write
     for i in range(size):
-        j = random.randint( 1, size)
+        j = random.randint(1, size)
         fh.write(str(j) + "\n")
 
     # Close file
