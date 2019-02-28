@@ -12,7 +12,7 @@ import os
 # Function running in O(n) returning boolean if array is sorted or not
 # Checks each element through the array is greater or equal to previous element
 def array_sorted(array):
-    return all(array[i] <= array[i+1] for i in xrange(len(array)-1))
+    return all(array[i] <= array[i+1] for i in range(len(array)-1))
 
 
 def test_harness(file):
@@ -85,10 +85,12 @@ def run():
     else:
         print("You did not enter a valid arguement.")
 
-    print("Would you like to run the program again? Yes | No")
+    print("Would you like to run the program again?\n 0 = No | 1 = Yes")
     answer = input()
-    if "Y" or "y" in answer:
+    if answer == 1:
         run()
+    else:
+        return 0
         
 
 if __name__ == "__main__":
