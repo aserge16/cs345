@@ -3,20 +3,21 @@
 # Aleksandr Sergeev
 
 
-from quicksort import *
 from numfile_generators import *
+import quicksort
 import datetime
 import os
 
 
 # Function running in O(n) returning boolean if array is sorted or not
+# Checks each element through the array is greater or equal to previous element
 def arraySortTest(array):
     return all(array[i] <= array[i+1] for i in xrange(len(array)-1))
 
 
 def testHarness(file):
     #Get result array, time
-    time, array = main(file)
+    time, array = quicksort.main(file)
 
     # Get results and convert to strings for writing to file
     dayTime = str(datetime.datetime.now())
@@ -47,7 +48,7 @@ def run():
     print("Please enter a number corresponding to desired file:\n 1 = ints-1.dat \n 2 = ints-10k.dat \n 3 = ints-100k.dat\n 4 = ints-1m.dat\n 5 = ints-10m.dat\n 6 = floats-1m.dat\n 7 = floats-10m.dat\n 8 = All int files\n 9 = All float files\n 10 = Pathologically ordered int file\n 11 = Randomly generated int file")
     filesToRun = int(input())
     
-    # Run files based on index of filenames list
+    # Run files based on index of file_names list
     if (0 < filesToRun < 12):
         if filesToRun == 8:
             for i in range(0, 5):
@@ -60,11 +61,11 @@ def run():
             try:
                 amount = input()
                 if filesToRun == 10:
-                    fileName = pathological(amount)
-                    testHarness(fileName)
+                    file_name = pathological(amount)
+                    testHarness(file_name)
                 else:
-                    fileName = randomFile(amount)
-                    testHarness(fileName)
+                    file_name = random_file(amount)
+                    testHarness(file_name)
             except ValueError:
                 print("Please enter an integer.")
                 return

@@ -13,7 +13,7 @@ sys.setrecursionlimit(10100)
 def partition(array, low, high):
     # Declare pivot, ending index of array
     pivot = array[high]
-    # Lowest element
+    # Lowest element index
     i = low - 1
 
     # Loop through array and sort
@@ -40,7 +40,7 @@ def quicksort(array, low, high):
 
 
 def main(file):
-    myArray = []
+    my_array = []
 
     # Try open file, catch path error
     try:
@@ -52,24 +52,22 @@ def main(file):
     # Read numbers to Array, close file
     # Check file type being opened to correctly convert string to int or float
     lines = fh.readlines()
-    if "int" in file:
-        for line in lines:
-            line.rstrip()
-            myArray.append(int(line))
-    elif "float" in file:
-        for line in lines:
-            line.rstrip()
-            myArray.append(float(line))
+    for line in lines:
+        line.rstrip()
+        if "int" in file:
+            my_array.append(int(line))
+        elif "float" in file:
+            my_array.append(float(line))
     fh.close()
 
     # Call quicksort on array and time
     start = timeit.default_timer()
-    quicksort(myArray, 0, len(myArray) - 1)
+    quicksort(my_array, 0, len(my_array) - 1)
     stop = timeit.default_timer()
     time_sec = stop - start
 
     # Let user know quicksort is complete, return timing & sorted array
     print("File " + file + " completed.")
-    return time_sec, myArray
+    return time_sec, my_array
 
 
